@@ -34,6 +34,7 @@ function useData<T>(
 					setError(err.message);
 					setLoading(false);
 				});
+
 			return () => controller.abort();
 		},
 		deps ? [...deps] : []
