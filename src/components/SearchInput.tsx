@@ -5,20 +5,34 @@ import {
 	Input,
 	IconButton,
 } from "@chakra-ui/react";
+import { useRef } from "react";
 
-function SearchInput() {
+interface Props {
+	onSearch: (searchText: string) => void;
+}
+
+function SearchInput({ onSearch }: Props) {
+	const ref = useRef<HTMLInputElement>(null);
 	return (
-		<InputGroup overflow={"hidden"}>
-			<InputLeftElement
-				children={
-					<IconButton
-						aria-label="Search database"
-						icon={<SearchIcon />}
-					/>
-				}
-			/>
-			<Input type="tel" placeholder="Search games..." />
-		</InputGroup>
+		<form
+			style={{ width: "100%" }}
+			onSubmit={(e) => {
+				e.preventDefault();
+				if (ref.current) onSearch(ref.current.value);
+			}}
+		>
+			<InputGroup>
+				<InputLeftElement
+					children={
+						<IconButton
+							aria-label="Search database"
+							icon={<SearchIcon />}
+						/>
+					}
+				/>
+				<Input ref={ref} type="tel" placeholder="Search games..." />
+			</InputGroup>
+		</form>
 	);
 }
 
