@@ -38,7 +38,7 @@ function App() {
 				></NavBar>
 			</GridItem>
 			<Show above="lg">
-				<GridItem area={"aside"} p="2">
+				<GridItem area={"aside"} p="3">
 					<GenresList
 						selectedGenre={gameQuery.genre}
 						onSelectedGenre={(genre) =>
