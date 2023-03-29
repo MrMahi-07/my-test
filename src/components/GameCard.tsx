@@ -1,12 +1,4 @@
-import {
-	Card,
-	CardBody,
-	Flex,
-	Heading,
-	HStack,
-	Image,
-	Text,
-} from "@chakra-ui/react";
+import { Card, CardBody, Heading, HStack, Image } from "@chakra-ui/react";
 
 import { Games } from "../hooks/useGames";
 import getCroppedImageUrl from "../services/image-url";
@@ -19,7 +11,7 @@ interface Props {
 
 function GameCard({ games }: Props) {
 	return (
-		<Card borderRadius={10} overflow="hidden">
+		<Card width={"300px"} borderRadius={10} overflow="hidden">
 			<Image src={getCroppedImageUrl(games.background_image)} />
 			<CardBody>
 				<Heading fontSize={"2xl"}>{games.name}</Heading>
